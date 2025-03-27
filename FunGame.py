@@ -24,4 +24,3 @@ if   should_we_play == "y" or should_we_play == "yes":
 else:
     print("Goodbye!")
     exit()
-    
