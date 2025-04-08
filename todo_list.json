@@ -1,1 +1,1 @@
-{"tasks": ["saved task", {"description": "Item list 1", "complete": false}, {"description": "mark my day as hectic", "complete": false}, {"description": "hello word how are you", "complete": false}]}
+{"tasks": [{"description": "Buy milk", "complete": true}, {"description": "Walk dog", "complete": false}]}

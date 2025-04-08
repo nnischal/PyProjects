@@ -2,7 +2,7 @@ import json
 
 file_name = "todo_list.json"
 
-def load_tasks(tasks):
+def load_tasks():
     try:
         with open(file_name, 'r') as file:
             return json.load(file)
@@ -11,9 +11,9 @@ def load_tasks(tasks):
 def save_tasks(tasks):
     try:
         with open(file_name, 'w') as file:
-            json.dump(tasks,file)
+            json.dump(tasks, file)
     except:
-        print("Error saving tasks.")
+        print("Error saving task.")
 
 def create_task(tasks):
     description = input("Enter task description: ").strip()
@@ -33,19 +33,19 @@ def view_tasks(tasks):
     else:
         print("Your To-Do List:")
         for idx, task in  enumerate(task_list):
-            status = "[Completed]" if task ["complete"] else "[Pending]"
+            status = "[Completed]" if task["complete"] else "[Pending]"
             print(f"{idx + 1}. {task['description']} | {status}")
 def mark_task_complete(tasks):
     view_tasks(tasks)
     try:
-        task_number = int(input("Enter the task number to mark as complete: ")).strip()
-        if 1 <= task_number <= len(tasks):
+        task_number = int(input("Enter the task number to mark as complete: ").strip())
+        if 1 <= task_number <= len(tasks["tasks"]):
             tasks ["tasks"][task_number - 1]["complete"] = True
             save_tasks(tasks)
             print("Task marked as complete.")
         else:
             print("Invalid task number.")
-    except:
+    except ValueError:
         print("Invalid input. Please enter a number.")
         
 
